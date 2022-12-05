@@ -1,14 +1,21 @@
 import { Box, Flex } from "@chakra-ui/react";
 
+import Logo from "lib/components/Logo";
+
 import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
-    <Flex as="header" width="full" align="center">
-      <Box marginLeft="auto">
-        <ThemeToggle />
-      </Box>
-    </Flex>
+    <Box as="header" width="full">
+      <Flex maxWidth="1440px" margin="0 auto" paddingY="2">
+        <Flex alignItems="center">
+          <Logo fg="white" bg="black" />
+        </Flex>
+        <Box marginLeft="auto">
+          <ThemeToggle />
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 

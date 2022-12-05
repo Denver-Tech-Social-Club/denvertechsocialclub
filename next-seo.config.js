@@ -1,24 +1,26 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "nextarter-chakra",
-  titleTemplate: "%s | nextarter-chakra",
-  defaultTitle: "nextarter-chakra",
-  description: "Next.js + chakra-ui + TypeScript template",
-  canonical: "https://nextarter-chakra.sznm.dev",
+  title: "Denver Tech Social Club",
+  titleTemplate: "%s | Denver Tech Social Club",
+  defaultTitle: "Denver DeTechvs Social Club",
+  description:
+    "Denver Tech Social Club is a digital & physical third place that encourages connections & friendships among the Denver tech community. Talk shop, talk hobbies, make sub-clubs (board games, anyone?), and more!",
+  canonical: "https://denvertechsocial.club",
   openGraph: {
-    url: "https://nextarter-chakra.sznm.dev",
-    title: "nextarter-chakra",
-    description: "Next.js + chakra-ui + TypeScript template",
+    url: "https://denvertechsocial.club",
+    title: "Denver Tech Social Club",
+    description:
+      "Denver Tech Social Club is a digital & physical third place that encourages connections & friendships among the Denver tech community. Talk shop, talk hobbies, make sub-clubs (board games, anyone?), and more!",
     images: [
       {
-        url: "https://og-image.sznm.dev/**nextarter-chakra**.sznm.dev.png?theme=dark&md=1&fontSize=125px&images=https%3A%2F%2Fsznm.dev%2Favataaars.svg&widths=250",
-        alt: "nextarter-chakra.sznm.dev og-image",
+        url: "",
+        alt: "Denver Tech Social Club",
       },
     ],
-    site_name: "nextarter-chakra",
+    site_name: "Denver Tech Social Club",
   },
   twitter: {
-    handle: "@sozonome",
+    handle: "@DenverTechSC",
     cardType: "summary_large_image",
   },
 };

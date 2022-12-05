@@ -1992,6 +1992,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/alegreya@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/alegreya/-/alegreya-4.5.9.tgz#12148821bcdbd26cab7ee70506d621244d7379f0"
+  integrity sha512-dQZ9hY8fCN1Z7srU7DqQsu8mR3zfhjOwowj6GbwiGQJKFnBZGG5Z/ycYgsSwmr3J5S4V10eIRLvDwtYyJOKsNg==
+
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.7.tgz#38aec044c6c828f6ed51d5d7ae3d9b9faf6dbb0f"
