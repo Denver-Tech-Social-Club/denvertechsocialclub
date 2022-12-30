@@ -5,6 +5,6 @@
     "plugin:@next/next/recommended"
   ],
   "parserOptions": {
-    "project": ["../denvertechsocialclub/tsconfig.json"]
+    "project": ["./tsconfig.json"]
   }
 }
