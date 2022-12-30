@@ -11,7 +11,8 @@ const Heading200 = ({ children }: Heading200Props) => {
       maxWidth="540px"
       fontSize={["32px", "54px"]}
       lineHeight="58px"
-      fontWeight="100"
+      fontWeight="normal"
+      fontStyle="normal"
       marginBottom="4"
     >
       {children}

@@ -25,8 +25,14 @@ const Home = () => {
         minHeight={["400px", "700px"]}
         justifyContent="center"
         alignItems="center"
+        paddingX={["4", "0"]}
       >
-        <Box maxWidth="1000px" margin="0 auto" textAlign="center">
+        <Box
+          maxWidth="1000px"
+          margin="0 auto"
+          textAlign="center"
+          paddingX={["4", "0"]}
+        >
           <Heading
             fontSize={{ base: "64px", md: "124px" }}
             fontWeight={100}

@@ -1,27 +1,23 @@
-import { Box, Flex, Button, Link } from "@chakra-ui/react";
+import { Box, Flex, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 import Logo from "lib/components/Logo";
 
 const Header = () => {
   return (
-    <Box as="header" width="full" position="fixed">
-      <Flex maxWidth="1280px" margin="0 auto" paddingY="4">
+    <Box as="header" width="full" position="fixed" zIndex="sticky">
+      <Flex
+        maxWidth="1280px"
+        margin="0 auto"
+        paddingY="4"
+        paddingX={["4", "0"]}
+      >
         <Flex alignItems="center">
           <Link as={NextLink} href="/">
             <Logo fg="white" bg="black" />
           </Link>
         </Flex>
-        <Box marginLeft="auto">
-          <Button
-            as={NextLink}
-            href="/membership-application"
-            colorScheme="gray"
-          >
-            Become a member
-          </Button>
-          {/* <ThemeToggle /> */}
-        </Box>
+        <Box marginLeft="auto">{/* <ThemeToggle /> */}</Box>
       </Flex>
     </Box>
   );

@@ -70,7 +70,12 @@ const MembershipApplication = () => {
   return (
     <Box>
       <NextSeo title="Home" />
-      <Box maxWidth="1000px" marginX="auto" paddingTop="24">
+      <Box
+        maxWidth="1000px"
+        marginX="auto"
+        paddingTop="24"
+        paddingX={["4", "0"]}
+      >
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{

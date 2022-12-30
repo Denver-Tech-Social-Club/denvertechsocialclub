@@ -3,11 +3,10 @@ import { Global } from "@emotion/react";
 const Fonts = () => (
   <Global
     styles={`
-      /* latin */
-      @font-face {
+       @font-face {
         font-family: 'Radnick';
-        src: url('Radnick.ttf') format('ttf'),
-        url('Radnick.ttf') format('ttf');
+        src: url('/fonts/Radnick.otf') format('opentype'),
+        url('/fonts/Radnick.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
