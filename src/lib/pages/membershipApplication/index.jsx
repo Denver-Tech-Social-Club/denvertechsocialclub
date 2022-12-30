@@ -91,11 +91,10 @@ const MembershipApplication = () => {
               </FormLabel>
               <Input id="name" {...register("name", { required: true })} />
               <FormHelperText fontSize="lg">
-                Since this is a community focusing on building personal
-                relationships, we&apos;d like to at least know your name, you
-                don&apos;t have to put in your full name, and a nickname (like
-                something you&apos;d use at work, not a typical internet handle)
-                works also.
+                Since this community focuses on building personal relationships,
+                we&apos;d like to at least know your name. You don&apos;t have
+                to put in your full name; a nickname (like something you&apos;d
+                use at work, not a typical internet handle) also works.
               </FormHelperText>
               <FormErrorMessage>
                 {errors.name && requiredString}
@@ -108,9 +107,7 @@ const MembershipApplication = () => {
               </FormLabel>
               <Input type="email" {...register("email", { required: true })} />
               <FormHelperText fontSize="lg">
-                This email won&apos;t be used for anything beyond us sending you
-                an email with any follow up questions, or to let you know
-                you&apos;re approved for membership.
+                This email will only be used to send a follow-up email.
               </FormHelperText>
               <FormErrorMessage>
                 {errors.email && requiredString}
@@ -124,9 +121,9 @@ const MembershipApplication = () => {
               <Input {...(register("social"), { required: true })} />
               <FormHelperText fontSize="lg">
                 Please provide at least one link to your website, LinkedIn,
-                Twitter, Mastodon and so on. This lets us get a little idea of
-                who you are and what you&apos;re about, and also lets us know
-                you&apos;re active online!
+                Twitter, Mastodon, etc. This lets us get an idea of who you are
+                and what you&apos;re about and lets us know you&apos;re active
+                online!
               </FormHelperText>
               <FormErrorMessage>{errors.social}</FormErrorMessage>
             </FormControl>
@@ -138,8 +135,8 @@ const MembershipApplication = () => {
               <Input {...register("pronouns")} />
               <FormHelperText fontSize="lg">
                 This is optional, but... why are we asking for this? Because
-                pronouns are important! And we want to address and acknowledge
-                you properly
+                pronouns are essential! And we want to address and acknowledge
+                you properly.
               </FormHelperText>
               <FormErrorMessage>{errors.pronouns}</FormErrorMessage>
             </FormControl>
@@ -150,7 +147,7 @@ const MembershipApplication = () => {
               </FormLabel>
               <Input {...register("discord")} />
               <FormHelperText fontSize="lg">
-                If you&apos;ve already got a Discord username this helps us
+                If you&apos;ve already got a Discord username, this helps us
                 connect the dots during the application & invite process.
               </FormHelperText>
               <FormErrorMessage>{errors.discord}</FormErrorMessage>
@@ -212,9 +209,9 @@ const MembershipApplication = () => {
                 name="sector"
               />
               <FormHelperText fontSize="lg">
-                Pick one, if none seem to fit just hit that &quot;other&quot;
-                field, we&apos;d like you to at least be in the orbit of the
-                Tech Industry here in Denver.
+                If none seem to fit, just hit that &quot;other&quot; field;
+                we&apos;d like you to at least be in the orbit of the Tech
+                Industry here in Denver.
               </FormHelperText>
               <FormErrorMessage>
                 {errors.sector && requiredString}
@@ -227,10 +224,10 @@ const MembershipApplication = () => {
               </FormLabel>
               <Input {...register("area", { required: true })} />
               <FormHelperText fontSize="lg">
-                Membership is free; it just requires that you’re actually in the
+                Membership is free; it requires that you&apos;re actually in the
                 Greater Denver area, so let us know where you&apos;re from! Not
                 sure if you&apos;re in the Greater Denver area? Just reply with
-                roughly where you&apos;re at and we&apos;ll get it figured out.
+                roughly where you&apos;re at, and we&apos;ll get it figured out.
               </FormHelperText>
               <FormErrorMessage>{errors.area}</FormErrorMessage>
             </FormControl>
@@ -246,12 +243,12 @@ const MembershipApplication = () => {
             <FormControl isInvalid={errors.agreement} isRequired>
               <FormLabel htmlFor="agreement" fontSize="xl">
                 I agree to engage in a kind, considerate and respectful manner
-                with other members of this community.
+                with other community members.
               </FormLabel>
               <FormHelperText fontSize="lg">
                 We want this place to be fun, engaging, and entertaining - but
-                we also want it to be safe. So please, make sure you&apos;re
-                coming I here with the best of intentions.
+                we also want it to be safe. So please ensure you&apos;re coming
+                here with the best intentions.
               </FormHelperText>
               <Checkbox
                 {...register("agreement", { required: true })}
