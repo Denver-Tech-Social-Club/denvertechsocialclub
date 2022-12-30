@@ -14,13 +14,14 @@ import BadgeLogo from "lib/components/BadgeLogo";
 import Heading200 from "lib/components/Typography/Heading200";
 
 const Home = () => {
-  const mastheadBg = useColorModeValue("gray.200", "gray.900");
+  const mastheadBg = useColorModeValue("royalBlue.500", "royalBlue.500");
 
   return (
     <Box>
       <NextSeo title="Home" />
       <Flex
         backgroundColor={mastheadBg}
+        color="white"
         minHeight={["400px", "700px"]}
         justifyContent="center"
         alignItems="center"
@@ -59,7 +60,13 @@ const Home = () => {
           teachers, leaders — and more! — in ways&nbsp;
           <strong>beyond what you do for a nine-to-five</strong>.
         </Text>
-        <Button marginTop="4" size="lg" as={NextLink} href="/join">
+        <Button
+          marginTop="4"
+          size="lg"
+          as={NextLink}
+          href="/membership-application"
+          colorScheme="messenger"
+        >
           Join the club
         </Button>
       </Box>
@@ -120,12 +127,17 @@ const Home = () => {
         <Text fontSize="22px" lineHeight="32px" marginY={["6", "8"]}>
           We’d love to have you in the club. So what do you say?
         </Text>
-        <Button size="lg" as={NextLink} href="/join">
+        <Button
+          size="lg"
+          as={NextLink}
+          href="/membership-application"
+          colorScheme="messenger"
+        >
           Join the club
         </Button>
       </Box>
       <Flex justifyContent="center" alignItems="center" paddingY="0">
-        <BadgeLogo fg="white" bg="black" />
+        <BadgeLogo fg="#8c3b34" bg="#ffd554" />
       </Flex>
     </Box>
   );
