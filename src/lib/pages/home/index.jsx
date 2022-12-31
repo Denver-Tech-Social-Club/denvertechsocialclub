@@ -1,12 +1,4 @@
-import {
-  Heading,
-  Box,
-  Text,
-  Button,
-  Image,
-  Flex,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Heading, Box, Text, Button, Image, Flex } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import NextLink from "next/link";
 
@@ -14,18 +6,20 @@ import BadgeLogo from "lib/components/BadgeLogo";
 import Heading200 from "lib/components/Typography/Heading200";
 
 const Home = () => {
-  const mastheadBg = useColorModeValue("royalBlue.500", "royalBlue.500");
-
   return (
     <Box>
       <NextSeo title="Home" />
       <Flex
-        backgroundColor={mastheadBg}
+        backgroundColor="royalBlue.500"
+        backgroundImage="url(Group.png)"
+        backgroundSize="cover"
+        backgroundRepeat="no-repeat"
         color="white"
         minHeight={["400px", "700px"]}
         justifyContent="center"
         alignItems="center"
         paddingX={["4", "0"]}
+        position="relative"
       >
         <Box
           maxWidth="1000px"

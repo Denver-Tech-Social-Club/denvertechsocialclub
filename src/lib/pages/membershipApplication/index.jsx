@@ -60,7 +60,7 @@ const MembershipApplication = () => {
     try {
       submitApplicationEntry(formData);
       setformSubmitSuccess(true);
-      router.push("/application-success");
+      router.push("/membership-application-success");
     } catch (error) {
       console.error("error", error);
       // setFormErrors(error);
@@ -69,12 +69,13 @@ const MembershipApplication = () => {
 
   return (
     <Box>
-      <NextSeo title="Home" />
+      <NextSeo title="Membership Application" />
       <Box
         maxWidth="1000px"
         marginX="auto"
         paddingTop="24"
         paddingX={["4", "0"]}
+        background="white"
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
