@@ -14,7 +14,7 @@ const Header = () => {
       >
         <Flex alignItems="center">
           <Link as={NextLink} href="/">
-            <Logo fg="white" bg="black" />
+            <Logo fg="white" bg="#8c3b34" />
           </Link>
         </Flex>
         <Box marginLeft="auto">{/* <ThemeToggle /> */}</Box>

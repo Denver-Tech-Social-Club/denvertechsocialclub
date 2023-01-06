@@ -7,19 +7,20 @@ import Heading200 from "lib/components/Typography/Heading200";
 
 const Home = () => {
   return (
-    <Box>
+    <Box backgroundColor="mustard.500">
       <NextSeo title="Home" />
       <Flex
-        backgroundColor="royalBlue.500"
+        backgroundColor="mustard.500"
         backgroundImage="url(Group.png)"
         backgroundSize="cover"
         backgroundRepeat="no-repeat"
-        color="white"
-        minHeight={["400px", "700px"]}
+        color="wine.500"
+        minHeight={["400px", "760px"]}
         justifyContent="center"
         alignItems="center"
         paddingX={["4", "0"]}
         position="relative"
+        overflow="visible"
       >
         <Box
           maxWidth="1000px"

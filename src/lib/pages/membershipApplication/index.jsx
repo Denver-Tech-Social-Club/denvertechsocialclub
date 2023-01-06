@@ -68,14 +68,15 @@ const MembershipApplication = () => {
   };
 
   return (
-    <Box>
+    <Box backgroundColor="mustard.500" paddingY="20">
       <NextSeo title="Membership Application" />
       <Box
-        maxWidth="1000px"
+        maxWidth="760px"
         marginX="auto"
-        paddingTop="24"
+        paddingY="12"
         paddingX={["4", "0"]}
         background="white"
+        borderRadius="lg"
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
