@@ -13,7 +13,7 @@ const Header = () => {
         paddingX={["4", "0"]}
       >
         <Flex alignItems="center">
-          <Link as={NextLink} href="/">
+          <Link as={NextLink} href="/" aria-label="DTSC Homepage">
             <Logo fg="white" bg="#8c3b34" />
           </Link>
         </Flex>
