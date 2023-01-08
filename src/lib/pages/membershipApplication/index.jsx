@@ -95,13 +95,15 @@ const MembershipApplication = () => {
           <Heading size="3xl" marginBottom="12">
             Membership Application
           </Heading>
-          <Text fontSize="lg" marginBottom="8">
+          <Text fontSize="lg" marginBottom="2">
             Membership is free! All we ask is that you&apos;re involved in tech
             in the Greater Denver area, and that you&apos;re willing to come in
             here as a good person! If you&apos;re interested in joining us fill
             out this form, and we&apos;ll get back to you in a few days! Also,
             be sure to check out our rules & code of conduct.
-            <HStack marginTop="4">
+          </Text>
+          <Box marginTop="4" marginBottom="8" width="100%">
+            <HStack spacing="2" width="100%">
               <Button
                 as={NextLink}
                 href="https://docs.google.com/document/d/1Ll22vZ5qLo-Kv9BxSqLr-8yhGeqlbY_MHYDOC9QsrUQ/edit?usp=sharing"
@@ -123,7 +125,7 @@ const MembershipApplication = () => {
                 Read our Code of Conduct
               </Button>
             </HStack>
-          </Text>
+          </Box>
 
           <Stack spacing="14">
             <FormControl isInvalid={errors.name} isRequired>

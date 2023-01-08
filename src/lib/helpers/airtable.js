@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable func-names */
+const APIKey = process.env.NEXT_PUBLIC_AIRTABLE_API_KEY;
 const Airtable = require("airtable");
 
-const base = new Airtable({ apiKey: "keyklxTGTgFw2C26Y" }).base(
-  "appMvf2IueEFXJUaO"
-);
+const base = new Airtable({ apiKey: APIKey }).base("appMvf2IueEFXJUaO");
 
 export function submitApplicationEntry(formData) {
   base("People").create(
