@@ -18,6 +18,7 @@ export function submitApplicationEntry(formData) {
       "Why do you want to join us?": formData.reason,
       "Do you have any social links we can check out?": formData.social,
       "Discord Username": formData.discord,
+      "My pronouns are:": formData.pronouns,
       "Invited to Discord": false,
     },
     function (err) {

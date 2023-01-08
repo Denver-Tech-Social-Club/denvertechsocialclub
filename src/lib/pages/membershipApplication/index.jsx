@@ -36,7 +36,7 @@ const membershipApplicationSchema = yup
     area: yup.string().required(),
     reason: yup.string().required(),
     agreement: yup.boolean().oneOf([true]),
-    socials: yup.string(),
+    social: yup.string(),
   })
   .required();
 
@@ -56,6 +56,7 @@ const MembershipApplication = () => {
   } = useForm({ resolver: yupResolver(membershipApplicationSchema) });
 
   const onSubmit = async (formData) => {
+    console.log(formData);
     // ga.event({
     //   action: "Submitted Membership Application",
     //   params: { form_data: formData },
@@ -148,7 +149,11 @@ const MembershipApplication = () => {
               <FormLabel htmlFor="email" fontSize="xl">
                 What&apos;s your email?
               </FormLabel>
-              <Input type="email" {...register("email", { required: true })} />
+              <Input
+                id="email"
+                type="email"
+                {...register("email", { required: true })}
+              />
               <FormHelperText fontSize="lg">
                 This email will only be used to send a follow-up email.
               </FormHelperText>
@@ -161,7 +166,7 @@ const MembershipApplication = () => {
               <FormLabel htmlFor="social" fontSize="xl">
                 Do you have any social links or a website we can check out?{" "}
               </FormLabel>
-              <Input {...(register("social"), { required: true })} />
+              <Input id="social" {...register("social", { required: true })} />
               <FormHelperText fontSize="lg">
                 Please provide at least one link to your website, LinkedIn,
                 Twitter, Mastodon, etc. This lets us get an idea of who you are
