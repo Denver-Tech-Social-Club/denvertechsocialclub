@@ -1,65 +1,31 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Image,
-  Text,
-  Link as ChakraLink,
-  useColorMode,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
-import Link from "next/link";
-
-import MotionBox from "lib/components/motion/Box";
 
 const Page404 = () => {
-  const { colorMode } = useColorMode();
-
   return (
-    <Flex minHeight="70vh" direction="column" justifyContent="center">
-      <NextSeo title="404 Not Found" />
-      <MotionBox
-        animate={{ y: 20 }}
-        transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
-        width={{ base: "100%", sm: "70%", md: "60%" }}
-        margin="0 auto"
+    <Box minHeight="100vh" paddingY="20">
+      <NextSeo title="404" />
+      <Box
+        maxWidth="760px"
+        marginX={{ base: "4", md: "auto" }}
+        paddingY="12"
+        paddingX={{ base: "4", md: "12" }}
+        background="white"
+        borderRadius="lg"
+        textAlign="center"
       >
-        <Image
-          src="/404 Error-pana.svg"
-          alt="Error 404 not found Illustration"
-        />
-      </MotionBox>
-      <Text textAlign="center" fontSize="xs" color="gray">
-        <ChakraLink
-          href="https://stories.freepik.com/web"
-          isExternal
-          rel="noopener noreferrer"
-        >
-          Illustration by Freepik Stories
-        </ChakraLink>
-      </Text>
-
-      <Box marginY={4}>
-        <Heading textAlign="center" size="lg">
-          Page not Found.
+        <Heading size="3xl" marginBottom="12">
+          404
         </Heading>
-
-        <Box textAlign="center" marginTop={4}>
-          <Text fontSize="sm" color="gray">
-            It&apos;s Okay!
-          </Text>
-          <Button
-            as={Link}
-            href="/"
-            backgroundColor={colorMode === "light" ? "gray.300" : "teal.500"}
-            size="sm"
-          >
-            Let&apos;s Head Back
-          </Button>
-        </Box>
+        <Text fontSize="22px" lineHeight="32px">
+          The page you&apos;re heading to doesn&apos;t exist, sorry about that.
+          If this keeps happening and you don&apos;t expect it to feel free to
+          email us at{" "}
+          <a href="mailto:hi@denvertechsocial.club">hi@denvertechsocial.club</a>
+          .
+        </Text>
       </Box>
-    </Flex>
+    </Box>
   );
 };
 

@@ -8,17 +8,19 @@ import Heading200 from "lib/components/Typography/Heading200";
 const Home = () => {
   return (
     <Box>
-      <NextSeo title="Home" />
+      <NextSeo title="Hey Denver!" />
       <Flex
-        // backgroundColor="mustard.500"
-        backgroundImage="url(Group.png)"
-        backgroundSize="cover"
+        backgroundImage={{
+          base: "url(MobileHeaderIllustration.png)",
+          md: "url(HeaderIllustration.png)",
+        }}
+        backgroundSize={{ base: "contain", md: "cover" }}
         backgroundRepeat="no-repeat"
         color="wine.500"
-        minHeight={["400px", "760px"]}
+        minHeight={{ base: "380px", md: "760px" }}
         justifyContent="center"
         alignItems="center"
-        paddingX={["4", "0"]}
+        paddingX={{ base: "4", md: "0" }}
         position="relative"
         overflow="visible"
       >
@@ -29,18 +31,21 @@ const Home = () => {
           paddingX={["4", "0"]}
         >
           <Heading
-            fontSize={{ base: "64px", md: "124px" }}
+            fontSize={{ base: "48px", md: "124px" }}
             fontWeight={100}
-            lineHeight={{ base: "72px", md: "124px" }}
-            textShadow="0px 8px 0px #F0A107"
+            lineHeight={{ base: "58px", md: "124px" }}
+            textShadow={{
+              base: "0px 4px 0px #F0A107",
+              md: "0px 8px 0px #F0A107",
+            }}
           >
             Hey, Denver Tech Folk.
           </Heading>
           <Text
-            fontSize="32px"
+            fontSize={{ base: "22px", md: "32px" }}
             maxWidth="490px"
             margin="0 auto"
-            lineHeight="38px"
+            lineHeight={{ base: "28px", md: "38px" }}
             paddingTop="4"
           >
             Let’s take a different approach to networking.{" "}
@@ -54,7 +59,7 @@ const Home = () => {
         marginY="16"
         marginTop="-18"
         textAlign="center"
-        paddingX={["4", "0"]}
+        paddingX={{ base: "4", md: "0" }}
       >
         <Text
           align="center"
@@ -86,8 +91,8 @@ const Home = () => {
         maxWidth="1000px"
         margin="0 auto"
         alignItems="center"
-        direction={["column", "row"]}
-        paddingX={["4", "0"]}
+        direction={{ base: "column", md: "row" }}
+        paddingX={{ base: "4", md: "0" }}
       >
         <Box>
           <Heading200>Get together, online or in-person.</Heading200>
@@ -98,18 +103,24 @@ const Home = () => {
           </Text>
         </Box>
         <Box>
-          <Image src="IMAGE.png" />
+          <Image
+            src="Hiking.png"
+            alt="An illustrated image of a group of people hiking."
+          />
         </Box>
       </Flex>
       <Flex
         maxWidth="1000px"
         margin="0 auto"
         alignItems="center"
-        direction={["column-reverse", "row"]}
-        paddingX={["4", "0"]}
+        direction={{ base: "column-reverse", md: "row" }}
+        paddingX={{ base: "4", md: "0" }}
       >
         <Box>
-          <Image src="IMAGE2.png" />
+          <Image
+            src="Bookclub.png"
+            alt="An illustrated image of a group of hands over books, portraying a bookclub."
+          />
         </Box>
         <Box>
           <Heading200>
@@ -122,12 +133,19 @@ const Home = () => {
           </Text>
         </Box>
       </Flex>
-      <Box textAlign="center" marginY="24" paddingX={["4", "0"]}>
+      <Box
+        textAlign="center"
+        marginTop={{ base: "4", md: "24" }}
+        paddingX={{ base: "4", md: "0" }}
+      >
         <Heading
-          fontSize={["52px", "100px"]}
-          marginBottom={["8", "16"]}
+          fontSize={{ base: "48px", md: "100px" }}
+          marginBottom={{ base: "8", md: "16" }}
           fontWeight="100"
-          textShadow="0px 6px 0px #F0A107"
+          textShadow={{
+            base: "0px 4px 0px #F0A107",
+            md: "0px 6px 0px #F0A107",
+          }}
         >
           e’re just <br />
           getın started.
@@ -140,7 +158,11 @@ const Home = () => {
           members-only directory, events — like a meetup clone light, just for
           us! — and more.
         </Text>
-        <Text fontSize="22px" lineHeight="32px" marginY={["6", "8"]}>
+        <Text
+          fontSize="22px"
+          lineHeight="32px"
+          marginY={{ base: "6", md: "8" }}
+        >
           We’d love to have you in the club. So what do you say?
         </Text>
         <Button
@@ -154,7 +176,12 @@ const Home = () => {
           Join the club
         </Button>
       </Box>
-      <Flex justifyContent="center" alignItems="center" paddingY="0">
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        paddingY="0"
+        marginTop={{ base: "12", md: "24" }}
+      >
         <BadgeLogo fg="white" bg="#8c3b34" />
       </Flex>
     </Box>

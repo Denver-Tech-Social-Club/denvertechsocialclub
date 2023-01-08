@@ -14,9 +14,13 @@ import {
   RadioGroup,
   Stack,
   Textarea,
+  Text,
+  ButtonGroup,
+  HStack,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { NextSeo } from "next-seo";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -72,9 +76,9 @@ const MembershipApplication = () => {
       <NextSeo title="Membership Application" />
       <Box
         maxWidth="760px"
-        marginX="auto"
+        marginX={{ base: "4", md: "auto" }}
         paddingY="12"
-        paddingX={["4", "0"]}
+        paddingX={{ base: "4", md: "0" }}
         background="white"
         borderRadius="lg"
       >
@@ -91,6 +95,36 @@ const MembershipApplication = () => {
           <Heading size="3xl" marginBottom="12">
             Membership Application
           </Heading>
+          <Text fontSize="lg" marginBottom="8">
+            Membership is free! All we ask is that you&apos;re involved in tech
+            in the Greater Denver area, and that you&apos;re willing to come in
+            here as a good person! If you&apos;re interested in joining us fill
+            out this form, and we&apos;ll get back to you in a few days! Also,
+            be sure to check out our rules & code of conduct.
+            <HStack marginTop="4">
+              <Button
+                as={NextLink}
+                href="https://docs.google.com/document/d/1Ll22vZ5qLo-Kv9BxSqLr-8yhGeqlbY_MHYDOC9QsrUQ/edit?usp=sharing"
+                colorScheme="facebook"
+                variant="outline"
+                size="sm"
+                target="_blank"
+              >
+                Read our Rules
+              </Button>
+              <Button
+                as={NextLink}
+                href="https://docs.google.com/document/d/1hcIr2lurCkcoqcgIw-wb03yuB-YVBTP94KbR4VpDj0g/edit?usp=sharing"
+                colorScheme="facebook"
+                variant="outline"
+                size="sm"
+                target="_blank"
+              >
+                Read our Code of Conduct
+              </Button>
+            </HStack>
+          </Text>
+
           <Stack spacing="14">
             <FormControl isInvalid={errors.name} isRequired>
               <FormLabel htmlFor="name" fontSize="xl">
