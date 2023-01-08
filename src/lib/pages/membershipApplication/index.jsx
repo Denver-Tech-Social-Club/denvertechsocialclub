@@ -68,7 +68,7 @@ const MembershipApplication = () => {
   };
 
   return (
-    <Box backgroundColor="mustard.500" paddingY="20">
+    <Box paddingY="20">
       <NextSeo title="Membership Application" />
       <Box
         maxWidth="760px"

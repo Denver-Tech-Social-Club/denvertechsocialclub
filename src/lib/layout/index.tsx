@@ -10,7 +10,15 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <Box margin="0 auto" transition="0.5s ease-out">
+    <Box
+      margin="0 auto"
+      transition="0.5s ease-out"
+      background="mustard.500"
+      backgroundImage="url(BG.png), url(BGTop.png)"
+      backgroundSize="initial"
+      backgroundRepeat="repeat-x"
+      backgroundPosition="bottom, top"
+    >
       <Header />
       <Box as="main">{children}</Box>
       <Footer />

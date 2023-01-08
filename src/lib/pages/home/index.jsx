@@ -7,10 +7,10 @@ import Heading200 from "lib/components/Typography/Heading200";
 
 const Home = () => {
   return (
-    <Box backgroundColor="mustard.500">
+    <Box>
       <NextSeo title="Home" />
       <Flex
-        backgroundColor="mustard.500"
+        // backgroundColor="mustard.500"
         backgroundImage="url(Group.png)"
         backgroundSize="cover"
         backgroundRepeat="no-repeat"
@@ -32,21 +32,30 @@ const Home = () => {
             fontSize={{ base: "64px", md: "124px" }}
             fontWeight={100}
             lineHeight={{ base: "72px", md: "124px" }}
+            textShadow="0px 8px 0px #F0A107"
           >
             Hey, Denver Tech Folk.
           </Heading>
           <Text
-            fontSize="28px"
+            fontSize="32px"
             maxWidth="490px"
             margin="0 auto"
             lineHeight="38px"
+            paddingTop="4"
           >
             Let’s take a different approach to networking.{" "}
-            <strong>Let’s make friends.</strong>
+            <strong className="circle-sketch-highlight">
+              Let’s make friends.
+            </strong>
           </Text>
         </Box>
       </Flex>
-      <Box marginY="16" textAlign="center" paddingX={["4", "0"]}>
+      <Box
+        marginY="16"
+        marginTop="-18"
+        textAlign="center"
+        paddingX={["4", "0"]}
+      >
         <Text
           align="center"
           fontSize="22px"
@@ -56,7 +65,7 @@ const Home = () => {
         >
           There are tons of great professional networking opportunities for us
           in Denver, so we wanted to focus on helping tech industry folks
-          gel&nbsp;<strong>together in a more personal way</strong>. We want to
+          get&nbsp;<strong>together in a more personal way</strong>. We want to
           bring together designers, developers, product managers, students,
           teachers, leaders — and more! — in ways&nbsp;
           <strong>beyond what you do for a nine-to-five</strong>.
@@ -66,7 +75,9 @@ const Home = () => {
           size="lg"
           as={NextLink}
           href="/membership-application"
-          colorScheme="messenger"
+          backgroundColor="royalBlue.500"
+          textColor="white"
+          _hover={{ bg: "#173BC6" }}
         >
           Join the club
         </Button>
@@ -101,7 +112,10 @@ const Home = () => {
           <Image src="IMAGE2.png" />
         </Box>
         <Box>
-          <Heading200>Connect over your passions.</Heading200>
+          <Heading200>
+            Connect over your{" "}
+            <span className="circle-sketch-highlight">passions</span>.
+          </Heading200>
           <Text maxWidth="520px" fontSize="22px" lineHeight="32px">
             Reading, crafting, video games, you name it. What are you into
             outside of work? Chat about it with the community!
@@ -113,6 +127,7 @@ const Home = () => {
           fontSize={["52px", "100px"]}
           marginBottom={["8", "16"]}
           fontWeight="100"
+          textShadow="0px 6px 0px #F0A107"
         >
           e’re just <br />
           getın started.
@@ -132,13 +147,15 @@ const Home = () => {
           size="lg"
           as={NextLink}
           href="/membership-application"
-          colorScheme="messenger"
+          backgroundColor="royalBlue.500"
+          textColor="white"
+          _hover={{ bg: "#173BC6" }}
         >
           Join the club
         </Button>
       </Box>
       <Flex justifyContent="center" alignItems="center" paddingY="0">
-        <BadgeLogo fg="#8c3b34" bg="#ffd554" />
+        <BadgeLogo fg="white" bg="#8c3b34" />
       </Flex>
     </Box>
   );
