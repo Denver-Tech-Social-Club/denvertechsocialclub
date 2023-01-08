@@ -95,7 +95,10 @@ const Home = () => {
         paddingX={{ base: "4", md: "0" }}
       >
         <Box>
-          <Heading200>Get together, online or in-person.</Heading200>
+          <Heading200>
+            Get together, online or{" "}
+            <Box sx={{ whiteSpace: "no-wrap" }}>in-person.</Box>
+          </Heading200>
 
           <Text maxWidth="520px" fontSize="22px" lineHeight="32px">
             Buddy up for a meetup, plan a hike, or start a remote worker happy
@@ -142,6 +145,7 @@ const Home = () => {
           fontSize={{ base: "48px", md: "100px" }}
           marginBottom={{ base: "8", md: "16" }}
           fontWeight="100"
+          color="wine.500"
           textShadow={{
             base: "0px 4px 0px #F0A107",
             md: "0px 6px 0px #F0A107",

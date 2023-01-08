@@ -14,6 +14,7 @@ const Heading200 = ({ children }: Heading200Props) => {
       fontWeight="normal"
       fontStyle="normal"
       marginBottom="4"
+      color="wine.500"
     >
       {children}
     </Heading>

@@ -2,4 +2,9 @@
 
 html {
   background-color: #ffd554;
+  color: #481915;
+}
+
+body {
+  color: #481915 !important;
 }
