@@ -24,8 +24,12 @@ const MembershipApplicationSuccess = () => {
         </Text>
         <Text marginTop="4">
           Any email will come from{" "}
-          <a href="mailto:hi@denvertechsocial.club">hi@denvertechsocial.club</a>
-          , so be sure to add that to your contacts. If you haven&apos;t heard
+          <a href="mailto:hi@denvertechsocial.club">hi@denvertechsocial.club</a>{" "}
+          or{" "}
+          <a href="mailto:dan@denvertechsocial.club">
+            dan@denvertechsocial.club
+          </a>
+          , so be sure to add those to your contacts. If you haven&apos;t heard
           from us after a few days make sure to check your spam folder, or feel
           free to email us!
         </Text>
