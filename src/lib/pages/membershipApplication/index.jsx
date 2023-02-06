@@ -65,12 +65,12 @@ const MembershipApplication = () => {
     });
 
     try {
-      submitApplicationEntry(formData);
+      const data = await submitApplicationEntry(formData);
       setformSubmitSuccess(true);
       router.push("/membership-application-success");
     } catch (error) {
-      console.error("error", error);
-      // setFormErrors(error);
+      console.error("FORM ERROR", error);
+      setFormErrors(error);
     }
   };
 
@@ -324,6 +324,24 @@ const MembershipApplication = () => {
               >
                 Apply for membership
               </Button>
+            )}
+            {formErrors.error && (
+              <Box
+                borderWidth={1}
+                borderColor="red.500"
+                padding="4"
+                borderRadius="md"
+                backgroundColor="red.100"
+                color="red.900"
+                textAlign="center"
+              >
+                <Heading>Shoot! There&apos;s an error</Heading>
+                <Text fontSize="lg">
+                  It&apos;s not you, it&apos;s us. We&apos;ve logged it and
+                  we&apos;ll get to the bottom of it. You can try again in a
+                  bit, or just email us directly and we&apos;ll follow up.
+                </Text>
+              </Box>
             )}
           </Stack>
         </form>
