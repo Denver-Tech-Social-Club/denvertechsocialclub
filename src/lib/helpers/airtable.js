@@ -15,7 +15,7 @@ export function submitApplicationEntry(formData) {
         Email: formData.email,
         "When it comes to the Tech Industry, I most closely align with:":
           formData.sector,
-        "What area are you located inTEST?": formData.area,
+        "What area are you located in?": formData.area,
         "I agree to engage in a kind, considerate and respectful manner with other members of this community.":
           formData.agreement,
         "Why do you want to join us?": formData.reason,
