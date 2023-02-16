@@ -9,20 +9,22 @@ const base = new Airtable({ apiKey: APIKey }).base("appMvf2IueEFXJUaO");
 
 export function submitApplicationEntry(formData) {
   return new Promise((resolve, reject) => {
-    base("People").create(
+    base("applicants").create(
       {
-        Name: formData.name,
-        Email: formData.email,
-        "When it comes to the Tech Industry, I most closely align with:":
-          formData.sector,
-        "What area are you located in?": formData.area,
-        "I agree to engage in a kind, considerate and respectful manner with other members of this community.":
-          formData.agreement,
-        "Why do you want to join us?": formData.reason,
-        "Do you have any social links we can check out?": formData.social,
-        "Discord Username": formData.discord,
-        "My pronouns are:": formData.pronouns,
-        "Invited to Discord": false,
+        full_name: formData.name,
+        email: formData.email,
+        pronouns: formData.pronouns,
+        website: formData.website,
+        linkedin: formData.linkedin,
+        meetup: formData.meetup,
+        discord: formData.discord,
+        github: formData.github,
+        twitter: formData.twitter,
+        mastodon: formData.mastodon,
+        social_other: formData.social_other,
+        sector: formData.sector,
+        location: formData.location,
+        join_reason: formData.join_reason,
       },
       (err, res) => {
         if (err) {

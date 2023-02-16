@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
 import {
@@ -17,6 +18,10 @@ import {
   Text,
   ButtonGroup,
   HStack,
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
+  useRadioGroup,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { usePlausible } from "next-plausible";
@@ -34,9 +39,8 @@ const membershipApplicationSchema = yup
     name: yup.string().required(),
     email: yup.string().required(),
     sector: yup.string().required(),
-    area: yup.string().required(),
-    reason: yup.string().required(),
-    agreement: yup.boolean().oneOf([true]),
+    location: yup.string().required(),
+    join_reason: yup.string().required(),
     social: yup.string(),
   })
   .required();
@@ -63,7 +67,6 @@ const MembershipApplication = () => {
         ...formData,
       },
     });
-
     try {
       const data = await submitApplicationEntry(formData);
       setformSubmitSuccess(true);
@@ -84,9 +87,11 @@ const MembershipApplication = () => {
         paddingX={{ base: "4", md: "0" }}
         background="white"
         borderRadius="lg"
+        fontFamily="sansSerif"
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
+          autoComplete="on"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -95,116 +100,114 @@ const MembershipApplication = () => {
             margin: "auto",
           }}
         >
-          <Heading size="3xl" marginBottom="12">
+          <Heading size="xl" marginBottom="12">
             Membership Application
           </Heading>
-          <Text fontSize="lg" marginBottom="2">
-            Membership is free! All we ask is that you&apos;re involved in tech
-            in the Greater Denver area, and that you&apos;re willing to come in
-            here as a good person! If you&apos;re interested in joining us fill
-            out this form, and we&apos;ll get back to you in a few days! Also,
-            be sure to check out our rules & code of conduct.
-          </Text>
-          <Box marginTop="4" marginBottom="8" width="100%">
-            <HStack spacing="2" width="100%">
-              <Button
-                as={NextLink}
-                href="https://docs.google.com/document/d/1Ll22vZ5qLo-Kv9BxSqLr-8yhGeqlbY_MHYDOC9QsrUQ/edit?usp=sharing"
-                colorScheme="facebook"
-                variant="outline"
-                size="sm"
-                target="_blank"
-              >
-                Read our Rules
-              </Button>
-              <Button
-                as={NextLink}
-                href="https://docs.google.com/document/d/1hcIr2lurCkcoqcgIw-wb03yuB-YVBTP94KbR4VpDj0g/edit?usp=sharing"
-                colorScheme="facebook"
-                variant="outline"
-                size="sm"
-                target="_blank"
-              >
-                Read our Code of Conduct
-              </Button>
-            </HStack>
-          </Box>
 
-          <Stack spacing="14">
+          <Stack spacing="8">
             <FormControl isInvalid={errors.name} isRequired>
-              <FormLabel htmlFor="name" fontSize="xl">
-                What&apos;s your name?
-              </FormLabel>
-              <Input id="name" {...register("name", { required: true })} />
-              <FormHelperText fontSize="lg">
-                Since this community focuses on building personal relationships,
-                we&apos;d like to at least know your name. You don&apos;t have
-                to put in your full name; a nickname (like something you&apos;d
-                use at work, not a typical internet handle) also works.
-              </FormHelperText>
+              <FormLabel htmlFor="name">Full Name</FormLabel>
+              <Input
+                id="name"
+                {...register("name", { required: true })}
+                autoComplete="name"
+              />
+
               <FormErrorMessage>
                 {errors.name && requiredString}
               </FormErrorMessage>
             </FormControl>
 
+            <FormControl isInvalid={errors.pronouns}>
+              <FormLabel htmlFor="pronouns">Pronouns (optional)</FormLabel>
+              <Input {...register("pronouns")} />
+
+              <FormErrorMessage>{errors.pronouns}</FormErrorMessage>
+            </FormControl>
+
             <FormControl isInvalid={errors.email} isRequired>
-              <FormLabel htmlFor="email" fontSize="xl">
-                What&apos;s your email?
-              </FormLabel>
+              <FormLabel htmlFor="email">Email</FormLabel>
               <Input
                 id="email"
                 type="email"
                 {...register("email", { required: true })}
+                autoComplete="email"
               />
-              <FormHelperText fontSize="lg">
-                This email will only be used to send a follow-up email.
+              <FormHelperText mb="4">
+                Your personal email, not a work/business one, ideally.
               </FormHelperText>
+
               <FormErrorMessage>
                 {errors.email && requiredString}
               </FormErrorMessage>
             </FormControl>
 
-            <FormControl isInvalid={errors.social} isRequired>
-              <FormLabel htmlFor="social" fontSize="xl">
-                Do you have any social links or a website we can check out?{" "}
+            <FormControl isInvalid={errors.social}>
+              <FormLabel htmlFor="social">
+                Personal Website or Social Profiles
               </FormLabel>
-              <Input id="social" {...register("social", { required: true })} />
-              <FormHelperText fontSize="lg">
-                Please provide at least one link to your website, LinkedIn,
-                Twitter, Mastodon, etc. This lets us get an idea of who you are
-                and what you&apos;re about and lets us know you&apos;re active
-                online!
+              <FormHelperText my="2">
+                👋 Hey! We only need one of any of these, but you can fill them
+                all out if you want. This is to verify you&apos;re a person, and
+                active online. Saying none, or leaving them all empty, will get
+                you rejected.
               </FormHelperText>
+              <InputGroup>
+                <InputLeftAddon width="24" children="Website" />
+                <Input
+                  id="website"
+                  {...register("website")}
+                  type="url"
+                  autoComplete="url"
+                />
+              </InputGroup>
+              <FormHelperText mb="4">
+                Your personal website, not a work/business one.
+              </FormHelperText>
+
+              <Stack spacing="1">
+                <InputGroup>
+                  <InputLeftAddon width="24" children="LinkedIn" />
+                  <Input type="text" id="linkedin" {...register("linkedin")} />
+                </InputGroup>
+                <InputGroup>
+                  <InputLeftAddon width="24" children="Meetup" />
+                  <Input type="text" id="meetup" {...register("meetup")} />
+                </InputGroup>
+                <InputGroup>
+                  <InputLeftAddon width="24" children="Discord" />
+                  <Input type="text" id="discord" {...register("discord")} />
+                </InputGroup>
+                <InputGroup>
+                  <InputLeftAddon width="24" children="Github" />
+                  <Input type="text" id="github" {...register("github")} />
+                </InputGroup>
+                <InputGroup>
+                  <InputLeftAddon width="24" children="Twitter" />
+                  <Input type="text" id="twitter" {...register("twitter")} />
+                </InputGroup>
+                <InputGroup>
+                  <InputLeftAddon width="24" children="Mastodon" />
+                  <Input type="text" id="mastodon" {...register("mastodon")} />
+                </InputGroup>
+                <InputGroup>
+                  <InputLeftAddon width="24" children="Intsagram" />
+                  <Input
+                    type="text"
+                    id="instagram"
+                    {...register("instagram")}
+                  />
+                </InputGroup>
+                <InputGroup>
+                  <InputLeftAddon width="24" children="Other" />
+                  <Input type="text" id="other" {...register("other")} />
+                </InputGroup>
+              </Stack>
               <FormErrorMessage>{errors.social}</FormErrorMessage>
             </FormControl>
 
-            <FormControl isInvalid={errors.pronouns}>
-              <FormLabel htmlFor="pronouns" fontSize="xl">
-                What are your pronouns?
-              </FormLabel>
-              <Input {...register("pronouns")} />
-              <FormHelperText fontSize="lg">
-                This is optional, but... why are we asking for this? Because
-                pronouns are essential! And we want to address and acknowledge
-                you properly.
-              </FormHelperText>
-              <FormErrorMessage>{errors.pronouns}</FormErrorMessage>
-            </FormControl>
-
-            <FormControl isInvalid={errors.discord}>
-              <FormLabel htmlFor="discord" fontSize="xl">
-                What&apos;s your Discord username?
-              </FormLabel>
-              <Input {...register("discord")} />
-              <FormHelperText fontSize="lg">
-                If you&apos;ve already got a Discord username, this helps us
-                connect the dots during the application & invite process.
-              </FormHelperText>
-              <FormErrorMessage>{errors.discord}</FormErrorMessage>
-            </FormControl>
-
             <FormControl isInvalid={errors.sector} isRequired>
-              <FormLabel htmlFor="sector" fontSize="xl">
+              <FormLabel htmlFor="sector">
                 When it comes to the Tech Industry, what do you most closely
                 align with?{" "}
               </FormLabel>
@@ -213,43 +216,33 @@ const MembershipApplication = () => {
                 render={({ field }) => (
                   <RadioGroup onChange={field.onChange} value={field.value}>
                     <Stack spacing="4">
-                      <Radio
-                        ref={field.ref}
-                        value="Development / Engineering"
-                        size="lg"
-                      >
+                      <Radio ref={field.ref} value="Development / Engineering">
                         Development / Engineering
                       </Radio>
 
-                      <Radio ref={field.ref} value="Design / UX" size="lg">
+                      <Radio ref={field.ref} value="Design / UX">
                         Design / UX
                       </Radio>
 
                       <Radio
                         ref={field.ref}
                         value="Product Management / Strategy"
-                        size="lg"
                       >
                         Product Management / Strategy
                       </Radio>
 
-                      <Radio
-                        ref={field.ref}
-                        value="Leadership / Management"
-                        size="lg"
-                      >
+                      <Radio ref={field.ref} value="Leadership / Management">
                         Leadership / Management
                       </Radio>
 
                       <Radio
                         ref={field.ref}
                         value="Student / Teacher / Education"
-                        size="lg"
                       >
                         Student / Teacher / Education
                       </Radio>
 
-                      <Radio ref={field.ref} value="Other" size="lg">
+                      <Radio ref={field.ref} value="Other">
                         Other
                       </Radio>
                     </Stack>
@@ -258,70 +251,48 @@ const MembershipApplication = () => {
                 control={control}
                 name="sector"
               />
-              <FormHelperText fontSize="lg">
-                If none seem to fit, just hit that &quot;other&quot; field;
-                we&apos;d like you to at least be in the orbit of the Tech
-                Industry here in Denver.
-              </FormHelperText>
+
               <FormErrorMessage>
                 {errors.sector && requiredString}
               </FormErrorMessage>
             </FormControl>
 
-            <FormControl isInvalid={errors.area} isRequired>
-              <FormLabel htmlFor="area" fontSize="xl">
-                What area of Denver are you located in?
+            <FormControl isInvalid={errors.location} isRequired>
+              <FormLabel htmlFor="location">
+                Location in the Greater Denver Area
               </FormLabel>
-              <Input {...register("area", { required: true })} />
-              <FormHelperText fontSize="lg">
-                Membership is free; it requires that you&apos;re actually in the
-                Greater Denver area, so let us know where you&apos;re from! Not
-                sure if you&apos;re in the Greater Denver area? Just reply with
-                roughly where you&apos;re at, and we&apos;ll get it figured out.
-              </FormHelperText>
-              <FormErrorMessage>{errors.area}</FormErrorMessage>
+              <Input
+                {...register("location", { required: true })}
+                autoComplete="address-level2"
+              />
+
+              <FormErrorMessage>{errors.location}</FormErrorMessage>
             </FormControl>
 
-            <FormControl isInvalid={errors.reason} isRequired>
-              <FormLabel htmlFor="reason" fontSize="xl">
+            <FormControl isInvalid={errors.join_reason} isRequired>
+              <FormLabel htmlFor="join_reason">
                 Why do you want to join us?
               </FormLabel>
-              <Textarea {...register("reason", { required: true })} />
-              <FormErrorMessage>{errors.url}</FormErrorMessage>
-            </FormControl>
-
-            <FormControl isInvalid={errors.agreement} isRequired>
-              <FormLabel htmlFor="agreement" fontSize="xl">
-                I agree to engage in a kind, considerate and respectful manner
-                with other community members.
-              </FormLabel>
-              <FormHelperText fontSize="lg">
-                We want this place to be fun, engaging, and entertaining - but
-                we also want it to be safe. So please ensure you&apos;re coming
-                here with the best intentions.
+              <FormHelperText my="2">
+                Give us a good, thoughtful reason!
               </FormHelperText>
-              <Checkbox
-                {...register("agreement", { required: true })}
-                size="lg"
-                marginTop="3"
-              >
-                I agree
-              </Checkbox>
+              <Textarea {...register("join_reason", { required: true })} />
 
-              <FormErrorMessage>{errors.agreement}</FormErrorMessage>
+              <FormErrorMessage>{errors.join_reason}</FormErrorMessage>
             </FormControl>
+
+            <Text>
+              By submitting you agree to engage in a kind, considerate and
+              respectful manner with other community members, and to abide by
+              our rules and code of conduct.
+            </Text>
 
             {isSubmitting ? (
               <Button isLoading loadingText="Submitting" variant="outline">
                 Submitting, please wait
               </Button>
             ) : (
-              <Button
-                disabled={false}
-                type="submit"
-                colorScheme="messenger"
-                size="lg"
-              >
+              <Button disabled={false} type="submit" colorScheme="messenger">
                 Apply for membership
               </Button>
             )}
@@ -336,7 +307,7 @@ const MembershipApplication = () => {
                 textAlign="center"
               >
                 <Heading>Shoot! There&apos;s an error</Heading>
-                <Text fontSize="lg">
+                <Text font>
                   It&apos;s not you, it&apos;s us. We&apos;ve logged it and
                   we&apos;ll get to the bottom of it. You can try again in a
                   bit, or just email us directly and we&apos;ll follow up.
