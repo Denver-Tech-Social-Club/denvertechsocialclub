@@ -147,10 +147,10 @@ const MembershipApplication = () => {
                 Personal Website or Social Profiles
               </FormLabel>
               <FormHelperText my="2">
-                👋 Hey! We only need one of any of these, but you can fill them
-                all out if you want. This is to verify you&apos;re a person, and
-                active online. Saying none, or leaving them all empty, will get
-                you rejected.
+                👋 Hey! Fill in at least one of these. This is to verify that
+                you&apos;re a person and active online. Saying none, leaving
+                them all empty, or providing a business website will get you
+                rejected.
               </FormHelperText>
               <InputGroup>
                 <InputLeftAddon width="24" children="Website" />
