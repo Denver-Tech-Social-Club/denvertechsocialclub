@@ -200,7 +200,11 @@ const MembershipApplication = () => {
                 </InputGroup>
                 <InputGroup>
                   <InputLeftAddon width="24" children="Other" />
-                  <Input type="text" id="other" {...register("other")} />
+                  <Input
+                    type="text"
+                    id="social_other"
+                    {...register("social_other")}
+                  />
                 </InputGroup>
               </Stack>
               <FormErrorMessage>{errors.social}</FormErrorMessage>

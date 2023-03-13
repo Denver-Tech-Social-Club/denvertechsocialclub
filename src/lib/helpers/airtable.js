@@ -21,6 +21,7 @@ export function submitApplicationEntry(formData) {
         github: formData.github,
         twitter: formData.twitter,
         mastodon: formData.mastodon,
+        instagram: formData.instagram,
         social_other: formData.social_other,
         sector: formData.sector,
         location: formData.location,
