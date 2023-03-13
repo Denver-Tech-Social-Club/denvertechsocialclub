@@ -191,7 +191,7 @@ const MembershipApplication = () => {
                   <Input type="text" id="mastodon" {...register("mastodon")} />
                 </InputGroup>
                 <InputGroup>
-                  <InputLeftAddon width="24" children="Intsagram" />
+                  <InputLeftAddon width="24" children="Instagram" />
                   <Input
                     type="text"
                     id="instagram"
