@@ -32,7 +32,8 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 
-import { submitApplicationEntry } from "lib/helpers/airtable";
+import { submitApplicationEntry } from "lib/helpers/pocketbase";
+import * as Sentry from "@sentry/nextjs";
 
 const membershipApplicationSchema = yup
   .object({
@@ -68,9 +69,17 @@ const MembershipApplication = () => {
       },
     });
     try {
-      const data = await submitApplicationEntry(formData);
-      setformSubmitSuccess(true);
-      router.push("/membership-application-success");
+      const data = await submitApplicationEntry(formData)
+        .then((res) => {
+          setformSubmitSuccess(true);
+          router.push("/membership-application-success");
+        })
+        .catch((err) => {
+          // TODO: show errors to user
+          setformSubmitSuccess(false);
+          Sentry.captureException(err);
+          console.log(err);
+        });
     } catch (error) {
       console.error("FORM ERROR", error);
       setFormErrors(error);
