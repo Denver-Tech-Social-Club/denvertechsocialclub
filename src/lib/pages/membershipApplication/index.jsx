@@ -69,20 +69,13 @@ const MembershipApplication = () => {
       },
     });
     try {
-      const data = await submitApplicationEntry(formData)
-        .then((res) => {
-          setformSubmitSuccess(true);
-          router.push("/membership-application-success");
-        })
-        .catch((err) => {
-          // TODO: show errors to user
-          setformSubmitSuccess(false);
-          Sentry.captureException(err);
-          console.log(err);
-        });
+      const data = await submitApplicationEntry(formData);
+      setformSubmitSuccess(true);
+      await router.push("/membership-application-success");
     } catch (error) {
-      console.error("FORM ERROR", error);
-      setFormErrors(error);
+      Sentry.captureException(error);
+      const errorMsg = error?.message || "An Error has occurred.";
+      setFormErrors({ error: errorMsg });
     }
   };
 

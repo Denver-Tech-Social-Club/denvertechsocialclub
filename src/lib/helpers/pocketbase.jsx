@@ -29,23 +29,17 @@ function sendEmail(applicantEmail, applicantName) {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
+      Sentry.captureMessage(`Email sent to ${applicantEmail}`);
     })
     .catch((err) => {
       Sentry.captureException(err);
     });
 }
 
-pb.beforeSend = (url, options) => {
-  console.log("beforeSend", url, options);
-};
-
 pb.afterSend = (res, data) => {
-  // sendEmail(data.email, data.name);
-  console.log("afterSend", data.email, data.name);
+  sendEmail(data.email, data.name);
 };
 
 export function submitApplicationEntry(formData) {
-  console.log(formData);
   return pb.collection(PB_COL).create(formData);
 }
