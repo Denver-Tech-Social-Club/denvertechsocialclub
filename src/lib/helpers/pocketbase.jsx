@@ -28,7 +28,7 @@ function sendEmail(applicantEmail, applicantName) {
     }),
   })
     .then((res) => res.json())
-    .then((res) => {
+    .then(() => {
       Sentry.captureMessage(`Email sent to ${applicantEmail}`);
     })
     .catch((err) => {
