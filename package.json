@@ -35,7 +35,6 @@
     "chakra-react-select": "^4.4.3",
     "framer-motion": "^7.6.9",
     "next": "^13.0.5",
-    "next-plausible": "^3.7.0",
     "next-pwa": "^5.6.0",
     "next-seo": "^5.14.1",
     "pocketbase": "^0.20.2",

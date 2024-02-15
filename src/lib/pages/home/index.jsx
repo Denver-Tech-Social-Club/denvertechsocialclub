@@ -1,5 +1,4 @@
 import { Heading, Box, Text, Button, Image, Flex } from "@chakra-ui/react";
-import { usePlausible } from "next-plausible";
 import { NextSeo } from "next-seo";
 import NextLink from "next/link";
 
@@ -7,8 +6,6 @@ import BadgeLogo from "lib/components/BadgeLogo";
 import Heading200 from "lib/components/Typography/Heading200";
 
 const Home = () => {
-  const plausible = usePlausible();
-
   return (
     <Box>
       <NextSeo title="Hey Denver!" />
@@ -86,7 +83,6 @@ const Home = () => {
           backgroundColor="royalBlue.500"
           textColor="white"
           _hover={{ bg: "#173BC6" }}
-          onClick={() => plausible("clicked top Join")}
         >
           Join the club
         </Button>
@@ -180,7 +176,6 @@ const Home = () => {
           backgroundColor="royalBlue.500"
           textColor="white"
           _hover={{ bg: "#173BC6" }}
-          onClick={() => plausible("clicked bottom Join")}
         >
           Join the club
         </Button>

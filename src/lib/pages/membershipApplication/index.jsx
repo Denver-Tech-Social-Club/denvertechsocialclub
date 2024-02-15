@@ -24,7 +24,6 @@ import {
   useRadioGroup,
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { usePlausible } from "next-plausible";
 import { NextSeo } from "next-seo";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
@@ -49,7 +48,6 @@ const membershipApplicationSchema = yup
 const requiredString = "This field is required.";
 
 const MembershipApplication = () => {
-  const plausible = usePlausible();
   const router = useRouter();
 
   const [formSubmitSuccess, setformSubmitSuccess] = useState(false);
@@ -63,11 +61,6 @@ const MembershipApplication = () => {
   } = useForm({ resolver: yupResolver(membershipApplicationSchema) });
 
   const onSubmit = async (formData) => {
-    plausible("submitted membership application", {
-      props: {
-        ...formData,
-      },
-    });
     try {
       const data = await submitApplicationEntry(formData);
       setformSubmitSuccess(true);
