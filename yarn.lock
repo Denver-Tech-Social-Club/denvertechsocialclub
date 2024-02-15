@@ -10469,17 +10469,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-plausible@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "next-plausible@npm:3.7.0"
-  peerDependencies:
-    next: ^11.1.0 || ^12.0.0 || ^13.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/6307ad7e60d431cb9d72dbb15b2bfa4d7ac4945b7aa50b4460a047d29c2e6a5a5ad7ad81eb3807cda0f3b892c91706cb596daf4481a1f9f75a621155132be92e
-  languageName: node
-  linkType: hard
-
 "next-pwa@npm:^5.6.0":
   version: 5.6.0
   resolution: "next-pwa@npm:5.6.0"
@@ -10676,7 +10665,6 @@ __metadata:
     husky: "npm:^8.0.2"
     lint-staged: "npm:^13.0.4"
     next: "npm:^13.0.5"
-    next-plausible: "npm:^3.7.0"
     next-pwa: "npm:^5.6.0"
     next-seo: "npm:^5.14.1"
     next-sitemap: "npm:^3.1.32"
