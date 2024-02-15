@@ -17,7 +17,7 @@ const withPWA = require("next-pwa")({
 
 /** @type {import('next').NextConfig} */
 module.exports = withPWA({
-  swcMinify: true,
+  swcMinify: false,
   reactStrictMode: true,
   eslint: {
     dirs: ["src"],
