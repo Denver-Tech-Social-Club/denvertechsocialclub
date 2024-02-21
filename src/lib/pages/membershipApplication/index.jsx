@@ -63,9 +63,12 @@ const MembershipApplication = () => {
   const onSubmit = async (formData) => {
     try {
       const data = await submitApplicationEntry(formData);
+      console.log("data", data);
       setformSubmitSuccess(true);
       await router.push("/membership-application-success");
     } catch (error) {
+      console.log(error);
+      console.dir(error);
       Sentry.captureException(error);
       const errorMsg = error?.message || "An Error has occurred.";
       setFormErrors({ error: errorMsg });
