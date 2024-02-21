@@ -3,24 +3,24 @@
 import * as Sentry from "@sentry/nextjs";
 import PocketBase from "pocketbase";
 import HelloEmail from "../../../emails/Test";
-import { render } from "@react-email/render";
+import { renderAsync } from "@react-email/render";
 
 const PB_URL = process.env.NEXT_PUBLIC_PB_URL;
 const PB_COL = process.env.NEXT_PUBLIC_PB_COLLECTION;
 const pb = new PocketBase(PB_URL);
 const emailUrl = pb.buildUrl("/email");
 
-function sendEmail(applicantEmail, applicantName) {
+async function sendEmail(applicantEmail, applicantName) {
   fetch(emailUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      html: render(<HelloEmail name={applicantName} />, {
+      html: await renderAsync(<HelloEmail name={applicantName} />, {
         pretty: true,
       }),
-      text: render(<HelloEmail name={applicantName} />, {
+      text: await renderAsync(<HelloEmail name={applicantName} />, {
         plainText: true,
       }),
       toEmail: applicantEmail,

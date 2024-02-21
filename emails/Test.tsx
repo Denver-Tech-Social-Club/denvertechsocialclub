@@ -54,12 +54,12 @@ export default function HelloEmail({ name }: Props) {
               >
                 DTSC Meetup
               </Button>
-              <Button href="#" className="bg-brand text-white p-2 rounded m-2">
-                DTSC Code of Conduct
-              </Button>
-              <Button href="#" className="bg-brand text-white p-2 rounded m-2">
-                DTSC Rules
-              </Button>
+              {/*<Button href="#" className="bg-brand text-white p-2 rounded m-2">*/}
+              {/*  DTSC Code of Conduct*/}
+              {/*</Button>*/}
+              {/*<Button href="#" className="bg-brand text-white p-2 rounded m-2">*/}
+              {/*  DTSC Rules*/}
+              {/*</Button>*/}
             </div>
           </Container>
         </Body>
