@@ -31,10 +31,7 @@ export default function HelloEmail({ name }: Props) {
           },
         }}
       >
-        <Head>
-          <title>Hello</title>
-        </Head>
-
+        <head />
         <Body className="bg-white flex flex-col sm:w-screen">
           <Container>
             <Img
