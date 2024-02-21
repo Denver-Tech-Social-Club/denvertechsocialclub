@@ -19,7 +19,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <script
           defer
           data-domain="denvertechsocial.club"
-          src="http://plausible.zachgreen.codes/js/script.js"
+          src="https://plausible.zachgreen.codes/js/script.js"
         />
       </Head>
       <DefaultSeo {...defaultSEOConfig} />
